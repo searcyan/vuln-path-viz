@@ -1,5 +1,7 @@
 # vuln-path-viz
 
+**中文** | [English](README.en.md)
+
 **把漏洞做成一张能一步一步走完的执行路径图。**
 
 左边一栏点「下一步」讲解，右边一张可拖动缩放的画布：按调用深度分列的**真实源码卡片**，卡片之间用带颜色的曲线连出调用关系 —— 哪一行进了哪个函数、在哪一行分叉、在哪一行被拦下或被放行、最后落到什么 impact。
@@ -95,12 +97,8 @@ lint 会在打开页面时也跑一遍（出问题打控制台），所以交付
 
 MIT，见 [LICENSE](LICENSE)。样例代码与文档可随意修改、二次分发。
 
----
+## 投稿你的讲解页
 
-## English
+用这个模板做出了什么？开一条 [Show your viz](https://github.com/searcyan/vuln-path-viz/issues/new?template=show-your-viz.yml) 贴出来 —— 真实案例是这个仓库最有说服力的部分。
 
-**vuln-path-viz** turns a vulnerability write-up into a step-through HTML explainer: source-anchored code cards laid out by call depth, colored call edges (pass / deny / fork), and a left panel that walks one real request line by line until impact.
-
-Single-file, zero-dependency output. `scripts/lint-scene.mjs` validates the scene data and, with `--src-root`, verifies that every quoted code line still matches the real source file at that exact line number.
-
-Drop the repo into any agent's skills directory (`~/.claude/skills/`, `~/.dsh/skills/`, `.agents/skills/`) — it ships a `SKILL.md`. MIT licensed.
+英文版说明见 [README.en.md](README.en.md)。

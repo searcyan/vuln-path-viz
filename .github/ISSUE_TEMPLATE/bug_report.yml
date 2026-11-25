@@ -1,0 +1,46 @@
+name: Bug / 引擎或脚本问题
+description: 页面渲染错位、lint 误报漏报、截图脚本失败、数据契约说不清
+title: "[bug] "
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: 出问题的地方
+      options:
+        - 页面渲染（卡片重叠 / 边连错 / 高亮错行 / 缩放平移）
+        - lint-scene.mjs（误报、漏报、崩溃）
+        - lint --src-root（核对结果不对）
+        - shot.mjs（找不到浏览器 / 截图空白 / 参数不生效）
+        - 文档与数据契约（references/ 与实现不一致）
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 现象
+      description: 期望什么、实际什么。渲染问题请附截图，截图比文字有用十倍
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 命令 + 最小数据。能贴出那段 SCENES 就更好
+      render: shell
+      placeholder: |
+        node scripts/lint-scene.mjs --src-root examples/acme-reports examples/acme-reports/viz/index.html
+        # 输出：…
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      placeholder: Windows 11 + Chrome 138 / Node 20.11；或 macOS 15 + Chromium 137 / Node 22
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        提 PR 之前先跑一遍 `npm run lint`；如果改了引擎（`SCENES` 之外的部分），
+        请确认模板与样例两个页面都还能正常渲染。

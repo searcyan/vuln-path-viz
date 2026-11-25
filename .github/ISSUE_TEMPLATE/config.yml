@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 先看样例 / See the example first
+    url: https://github.com/searcyan/vuln-path-viz/blob/main/examples/acme-reports/README.md
+    about: 10 卡片 / 17 步的完整讲解页，含可核对的源码 —— 大部分「怎么用」的问题看它就有答案
+  - name: 数据契约 / Data model
+    url: https://github.com/searcyan/vuln-path-viz/blob/main/references/data-model.md
+    about: card / edge / step 全字段、不变量、via&amp;ret 的精确语义

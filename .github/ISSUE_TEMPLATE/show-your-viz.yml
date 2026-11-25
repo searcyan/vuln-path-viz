@@ -1,0 +1,54 @@
+name: Show your viz / 投稿你的讲解页
+description: 用 vuln-path-viz 做出了讲解页？贴出来让大家看看（不需要是漏洞，任何调用链都行）
+title: "[showcase] "
+labels: ["showcase"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        这个模板存在的意义就是被用起来。贴一个你做出来的页面 —— 哪怕只有 6 张卡片。
+
+        不用贴敏感内容：把域名、凭据、内部路径替换成占位符，或只发截图 + 结构说明也完全可以。
+  - type: textarea
+    id: what
+    attributes:
+      label: 这条路径讲的是什么
+      description: 一句话说清入口和终点，例如「普通用户 → 越权改配置 → 读任意文件」
+      placeholder: 普通用户 token → POST /admin/config → ... → 读走 /etc/passwd
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: 页面或截图链接
+      description: 可以直接给网页链接（如果方便公开），或图床 / 仓库里的截图路径
+      placeholder: https://…
+    validations:
+      required: false
+  - type: dropdown
+    id: scale
+    attributes:
+      label: 规模
+      options:
+        - 小（≤ 8 卡片）
+        - 中（9–18 卡片）
+        - 大（> 18 卡片 / 多 tab）
+    validations:
+      required: true
+  - type: textarea
+    id: lessons
+    attributes:
+      label: 用下来最有用的 / 最别扭的地方
+      description: 哪一步读者最容易卡住？哪个字段你觉得多余？这些直接决定下一版改什么
+      placeholder: |
+        有用：把「拒绝路径」先走完再走「通过路径」，读者接受度高很多
+        别扭：卡片超过 15 张之后纵向太长，想按「阶段」折叠
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 确认
+      options:
+        - label: 内容已脱敏（域名、凭据、内部路径都换成了占位符），可以公开
+          required: true
