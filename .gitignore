@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 自检产物
+*.tmp.html
+tmp/

@@ -1,0 +1,32 @@
+{
+  "name": "vuln-path-viz",
+  "version": "0.1.0",
+  "description": "Step-through execution-path explainer for vulnerabilities: single-file HTML, source-anchored cards, colored call edges.",
+  "type": "module",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "vulnerability",
+    "cve",
+    "visualization",
+    "call-graph",
+    "agent-skill",
+    "SKILL.md"
+  ],
+  "files": [
+    "SKILL.md",
+    "assets/",
+    "references/",
+    "scripts/",
+    "examples/"
+  ],
+  "scripts": {
+    "lint": "node scripts/lint-scene.mjs assets/viz-template.html && node scripts/lint-scene.mjs --src-root examples/acme-reports examples/acme-reports/viz/index.html",
+    "lint:template": "node scripts/lint-scene.mjs assets/viz-template.html",
+    "lint:example": "node scripts/lint-scene.mjs --src-root examples/acme-reports examples/acme-reports/viz/index.html",
+    "shot:example": "node scripts/shot.mjs examples/acme-reports/viz/index.html 10 examples/acme-reports/shots/step-10-fork.png"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

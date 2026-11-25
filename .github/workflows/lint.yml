@@ -1,0 +1,27 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 模板：只做结构自检（骨架场景的路径是占位符，没有 src 可比对）
+      - name: Lint template
+        run: node scripts/lint-scene.mjs assets/viz-template.html
+
+      # 样例：结构自检 + 回到 examples/acme-reports/src 逐行核对每个卡片行
+      - name: Lint example (with source verification)
+        run: >
+          node scripts/lint-scene.mjs
+          --src-root examples/acme-reports
+          examples/acme-reports/viz/index.html
